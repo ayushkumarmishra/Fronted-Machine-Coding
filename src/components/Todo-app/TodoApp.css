@@ -1,0 +1,29 @@
+.todoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.todoinput {
+  height: 30px;
+}
+
+.todoButton {
+  margin-left: 12px;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: #ffffff;
+}
+
+.checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.displayTodosList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
