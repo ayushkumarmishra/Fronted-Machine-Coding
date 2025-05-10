@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import "./index.css";
 
 const ThemeMode = {
@@ -14,7 +14,7 @@ const ThemeClass = {
 const ThemeContext = createContext({ theme: 1, handleToggle: () => {} });
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = React.useState(ThemeMode.Light);
+  const [theme, setTheme] = useState(ThemeMode.Light);
 
   useEffect(() => {
     addThemeClass(ThemeClass[theme], undefined);

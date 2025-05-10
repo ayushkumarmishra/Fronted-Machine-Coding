@@ -1,7 +1,6 @@
-"use client";
 import React from "react";
-import "./index.css";
 import useTheme, { ThemeProvider } from "./useTheme";
+import "./index.css";
 
 const ThemeMode = {
   Dark: 1,

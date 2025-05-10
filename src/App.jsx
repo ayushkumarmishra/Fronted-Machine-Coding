@@ -4,6 +4,7 @@ import SortableListMain from "./components/sortable-list";
 import ThemeSwitcher from "./components/Theme";
 import TodoApp from "./components/Todo-app/TodoApp";
 import { TodoProvider } from "./components/Todo-app/context/TodoProvider";
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
   return (
@@ -11,9 +12,11 @@ function App() {
       {/* <Popover /> */}
       {/* <SortableListMain /> */}
       {/* <ThemeSwitcher /> */}
-      <TodoProvider>
+      {/* <TodoProvider>
         <TodoApp />
-      </TodoProvider>
+      </TodoProvider> */}
+      {/**Pagination Component */}
+      <Pagination />
     </>
   );
 }
