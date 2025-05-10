@@ -1,0 +1,37 @@
+.search-input {
+  position: relative;
+  width: 400px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.result-container {
+  width: 400px;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+  margin: auto;
+  list-style: none;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.result {
+  padding: 5px;
+}
+
+.result:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+.result.active {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}

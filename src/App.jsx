@@ -5,6 +5,7 @@ import ThemeSwitcher from "./components/Theme";
 import TodoApp from "./components/Todo-app/TodoApp";
 import { TodoProvider } from "./components/Todo-app/context/TodoProvider";
 import Pagination from "./components/Pagination/Pagination";
+import AutoCompleteSearchBar from "./components/SearchBar/AutoCompleteSearchBar";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <TodoApp />
       </TodoProvider> */}
       {/**Pagination Component */}
-      <Pagination />
+      {/* <Pagination /> */}
+      <AutoCompleteSearchBar />
     </>
   );
 }
