@@ -1,0 +1,31 @@
+.sortable-list-x {
+  height: 70vh;
+  width: 42vh;
+  margin-inline: auto;
+  margin-top: 50px;
+  border: 2px solid #e6e6e6;
+  border-radius: 5px;
+  overflow: scroll;
+}
+
+.row-x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* cursor: default; */
+  cursor: grab;
+  height: 42px;
+  border-bottom: 1px solid #e6e6e6;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease;
+  color: #333333;
+}
+
+/* We are adding this class because at the active state of the element only we can change the cursor state from grab to grabbing  */
+.row-x:active {
+  cursor: grabbing;
+}
+
+.grabbing {
+  background-color: #e14747;
+}

@@ -1,0 +1,26 @@
+.dark {
+  background-color: #121212;
+  color: #f6f6f6;
+  margin: auto;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  gap: 5px;
+  padding: 10px;
+}
+.light {
+  background-color: #f6f6f6;
+  color: #121212;
+  margin: auto;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  gap: 5px;
+  padding: 10px;
+}
