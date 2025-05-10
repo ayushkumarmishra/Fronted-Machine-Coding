@@ -29,17 +29,41 @@ const DropDownComponent = ({ totalPages, currentPage, onPageChange }) => {
   );
 };
 
+const ShimmerCompoenent = () => {
+  return (
+    <>
+      {Array.from({ length: 10 }, (_, index) => (
+        <div className="product-card" key={index}>
+          <img className="shimmer-img" />
+          <span></span>
+        </div>
+      ))}
+    </>
+  );
+};
+
 const MAX_PRODUCTS = 10;
 
 const Pagination = () => {
   const [datas, setDatas] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://dummyjson.com/products?limit=50");
-      const result = await response.json();
-      setDatas(result.products);
+      setLoading(true);
+      setHasError(false);
+      try {
+        const response = await fetch("https://dummyjson.com/products?limit=50");
+        const result = await response.json();
+        setDatas(result.products);
+      } catch (error) {
+        console.log(error);
+        setHasError(true);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
@@ -50,15 +74,31 @@ const Pagination = () => {
   const startIndex = (currentPage - 1) * MAX_PRODUCTS;
   const endIndex = startIndex + MAX_PRODUCTS;
 
-  return !datas.length ? (
-    <div>Loading...</div>
-  ) : (
+  if (loading) {
+    return (
+      <div>
+        <ShimmerCompoenent />
+      </div>
+    );
+  }
+
+  if (hasError) {
+    return (
+      <div>
+        <h2>Failed to load data. Please try again later.</h2>
+        <ShimmerCompoenent />
+      </div>
+    );
+  }
+
+  return (
     <div>
       <h1 style={{ marginBottom: "5rem" }}>Pagination</h1>
+
       <div className="pagination">
         <button
           className="pagination-numbers"
-          onClick={(prev) => setCurrentPage(prev - 1)}
+          onClick={() => setCurrentPage((prev) => prev - 1)}
           disabled={currentPage === 1}
         >
           ⬅️
@@ -78,12 +118,13 @@ const Pagination = () => {
         )}
         <button
           className="pagination-numbers"
-          onClick={(prev) => setCurrentPage(prev + 1)}
+          onClick={() => setCurrentPage((prev) => prev + 1)}
           disabled={currentPage === numberofpages}
         >
           ➡️
         </button>
       </div>
+
       <div className="pagination-container">
         {datas.slice(startIndex, endIndex).map((data) => (
           <CardComponent
